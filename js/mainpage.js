@@ -4,8 +4,10 @@ function startgame() {
     $(".bigtext").hide();
     $("#textheader").hide();
     $("#secondarybody").show()
+    document.title = "Instruktioner";
 }
 
 function pagedefault() {
+    document.title = "Välkommen";
     $("#secondarybody").hide();
 }
