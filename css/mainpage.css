@@ -1,0 +1,106 @@
+
+body {background-color: #eae7dc;
+      height: auto;
+      padding: 0px;
+      width: 100%;
+      margin: 0px auto;
+      min-width: 550px;}
+
+
+.megatext {  position: relative;
+             font-size: 100px;
+             margin: 0px auto;
+             width: 100%;
+             height: 200px;
+             background-color: #eae7dc;
+             text-align: center;
+             line-height: 200px;
+             font-family: Consolas;}
+
+#textheader {color: black;}
+
+.imglarge { width: 320px;
+            height: 320px;
+            align-content: center;
+            margin: 0px auto;
+            margin-bottom: 20px;
+            background-color: #eae7dc;
+            position: relative;
+            top: -40px;}
+
+#pratbubbla { }
+
+p {font-family: sans-serif;
+   margin: 0px auto;}
+
+
+#väl {text-align: center;}
+
+.longtext { align-content: center;
+            word-wrap: break-word;
+            width: 800px;
+            height: auto;
+            margin: 0px auto;
+            padding: 5px;
+            margin-bottom: 20px;}
+
+#welcometext {font-size: 20px;}
+
+.bigtext { text-align: center;
+           font-family:Consolas;
+           margin: 0px auto;}
+
+
+
+
+#startgame { color: #ffffff;
+             width: 250px;
+             height: 50px;
+             background-color: #86c232;
+             line-height: 50px;
+             border-radius: 15px;
+             margin-bottom: 40px;}
+
+#startgame :hover {cursor: pointer;
+                   background-color: #61892f;
+                   border-radius: 15px;}
+
+
+.footerheader { position: relative;
+                width: 100%;
+                background-color: #303c6c;
+                height: 300px;
+                align-content: center;
+                margin: 0px auto;
+                bottom: 0px;}
+
+#kontakt {  position: absolute;
+            margin: 0px auto;
+            margin-top: 30px;
+            font-family: sans-serif;
+            left: 200px;
+            color: #ffffff;}
+
+#frågor {color: #ffffff;
+         position: absolute;
+         margin: 0px auto;
+         margin-top: 100px !important;
+         left: 200px;}
+
+#address {color: #ffffff;
+         position: absolute;
+         margin: 0px auto;
+         margin-top: 125px !important;
+         left: 200px;}
+
+#created {color: grey;
+          text-align: center;
+          bottom: -250px;
+          position: relative;}
+
+
+             /* 2nd page */
+
+#secondarybody {width: 100%;
+                height: 845px;
+                background-color: #eae7dc;}
