@@ -105,23 +105,32 @@ p {font-family: sans-serif;
                 height: 845px;
                 background-color: #eae7dc;}
 
-#steg2 {position: absolute;}
+.steg2text {position: relative;
+            top: 50px;}
+
+#steg2 {text-align: center;}
 
 
-#instrbasic {position: absolute;}
+#instrbasic {align-content: center;
+             word-wrap: break-word;
+             width: 800px;
+             height: auto;
+             margin: 0px auto;
+             padding: 5px;}
 
 
 .gameholder { text-align: center;
               position: relative;
               width: 1000px;
               height: 300px;
-              top: 430px;
+              top: 400px;
               margin: 0px auto;}
 
 #imgleft {  margin-right: 40px;
             width: 300px;
             height: 300px;
-            cursor: pointer;}
+            cursor: pointer;
+            border: solid 2px black;}
 
 #imgcentre {position: relative;
             bottom: 140px;}
@@ -129,7 +138,8 @@ p {font-family: sans-serif;
 #imgright { margin-left: 40px;
             width: 300px;
             height: 300px;
-            cursor: pointer;}
+            cursor: pointer;
+            border: solid 2px black;}
 
 
 #vidare2 {   color: #86c232;
@@ -149,3 +159,7 @@ p {font-family: sans-serif;
                    background-color: #222629;
                    border-radius: 15px;}
 
+.progressbar {position: relative;
+              text-align: center;
+              margin: 0px auto;
+              top: 40px;}
