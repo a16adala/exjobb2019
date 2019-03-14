@@ -105,16 +105,31 @@ p {font-family: sans-serif;
                 height: 845px;
                 background-color: #eae7dc;}
 
+#steg2 {position: absolute;}
+
+
+#instrbasic {position: absolute;}
+
 
 .gameholder { text-align: center;
               position: relative;
-              width: 900px;
-              height: 400px;
-              top: 370px;
+              width: 1000px;
+              height: 300px;
+              top: 430px;
               margin: 0px auto;}
 
-#imgleft {margin-right: 47px;}
-#imgright {margin-left: 47px;}
+#imgleft {  margin-right: 40px;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;}
+
+#imgcentre {position: relative;
+            bottom: 140px;}
+
+#imgright { margin-left: 40px;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;}
 
 
 #vidare2 {   color: #86c232;
@@ -124,11 +139,13 @@ p {font-family: sans-serif;
              line-height: 50px;
              border-radius: 15px;
              position: relative;
-             top: 350px;
+             top: 440px;
              text-align: center;
              font-family:Consolas;
-             margin: 0px auto;}
+             margin: 0px auto;
+             margin-bottom: 20px;}
 
 #vidare2 :hover {  cursor: pointer;
                    background-color: #222629;
                    border-radius: 15px;}
+
