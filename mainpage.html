@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/mainpage.js"></script>
 
-    <body onload="startgame()">
+    <body onload="pagedefault()">
         
         <div class="progressbar">
             <img src="pictures/progress1.png" id="progress">
@@ -46,7 +46,16 @@
                     <p>Du har kommit till nästa steg!</p>
                 </div>
                 <div id="instrbasic">
-                    <p>En slumpning har nu gjots vilket innebär att du nedan kan se vilket spel du kommer att börja med. Kom ihåg att det inte spelar någon roll vilket spel du börjar med. När du trycker på att gå vidare denna gången kommer du komma till det slumpade spelet. Därefter kommer det finnas ytterligare instruktioner som du kommer behöva för att lösa uppgiften. Det enda du behöver göra nu är att skriva in ditt namn.</p>
+                    <p>En slumpning har nu gjots vilket innebär att du nedan kan se vilket spel du kommer att börja med. Kom ihåg att det inte spelar någon roll i vilken ordning de kommer. När du trycker på att gå vidare denna gången kommer du komma till det slumpade spelet. Därefter kommer det finnas ytterligare instruktioner som du kommer behöva för att lösa uppgiften. Det enda du behöver göra nu är att skriva in ditt namn.</p>
+                </div>
+                <div class="entername">
+                    <span id="typename">
+                        <b>Skriv in ditt namn här</b>
+                    </span>
+                        <textarea placeholder="Namn" value="name"></textarea>
+                </div>
+                <div id="savenamebutton">
+                    <button id="savename" value="name" onclick="savename()">Spara</button>
                 </div>
             </div>
             <div class="gameholder">
