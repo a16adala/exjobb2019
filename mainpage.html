@@ -7,10 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/mainpage.css">
+    <link rel="stylesheet" href="css/medgrafisk.css">
+    <link rel="stylesheet" href="css/utangrafisk.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/mainpage.js"></script>
+    <script src="js/medgrafisk.js"></script>
+    <script src="js/utangrafisk.js"></script>
+
+    <!------ Start of website !----->
 
     <body onload="pagedefault()">
         
@@ -20,25 +26,27 @@
 
         <!------ Firstpage !----->
         
-        <div class="megatext" id="textheader">Robot-Robert</div>
-        <div class="imglarge">
-            <img src="pictures/karelbubbla2.png" style="width: 400px; height:400px;" id="pratbubbla">
-        </div>
-        <div class="longtext">     
-            <div id="welcometext">  
-                <div id="väl">
-                    <p>Välkommen till mitt spel där du kommer att få testa på att koda.</p>
-                </div><br> 
-                <p>Din uppgift är att hjälpa Robert att plocka upp allt skräp som ligger utspritt. När du klickar på börja spelet kommer du att få reda på reglerna och få instruktioner kring hur du ska gå tillväga. Det är viktigt att notera att det finns två olika varianter av spelet. En där du får grafisk feedback och en variant utan grafisk feedback. Det spelet du börjar med kommer att slumpas och det är inte förens du är klar med det första spelet som du får börja på det andra.</p>
+        <div id="firstpage">
+            <div class="megatext" id="textheader">Robot-Robert</div>
+            <div class="imglarge">
+                <img src="pictures/karelbubbla2.png" style="width: 400px; height:400px;" id="pratbubbla">
             </div>
-        </div>
-        <div class="bigtext" id="vidare1" onclick="startgame()">
-            <h1>Gå vidare</h1>
+            <div class="longtext">
+                <div id="welcometext">
+                    <div id="väl">
+                        <p>Välkommen till mitt spel där du kommer att få testa på att koda.</p>
+                    </div><br>
+                    <p>Din uppgift är att hjälpa Robert att plocka upp allt skräp som ligger utspritt. När du klickar på börja spelet kommer du att få reda på reglerna och få instruktioner kring hur du ska gå tillväga. Det är viktigt att notera att det finns två olika varianter av spelet. En där du får grafisk feedback och en variant utan grafisk feedback. Det spelet du börjar med kommer att slumpas och det är inte förens du är klar med det första spelet som du får börja på det andra.</p>
+                </div>
+            </div>
+            <div class="bigtext" id="vidare1" onclick="startgame();gameshuffler()">
+                <h1>Gå vidare</h1>
+            </div>
         </div>
         
         <!------ end of firstpage !----->
         
-        <!------ After you click on "Börja spelet" !----->
+        <!------ After you click on "Gå vidare" once !----->
         
         <div id="secondarybody">
             <div class="steg2text">
@@ -52,24 +60,44 @@
                     <span id="typename">
                         <b>Skriv in ditt namn här</b>
                     </span>
-                        <textarea placeholder="Namn" value="name"></textarea>
+                        <textarea placeholder="Namn" id="saveusername" value="name"></textarea>
                 </div>
                 <div id="savenamebutton">
-                    <button id="savename" value="name" onclick="savename()">Spara</button>
+                    <button id="savename"  onclick="savename()">Spara</button>
                 </div>
             </div>
-            <div class="gameholder">
-                <img src="pictures/medgrafisk.png" id="imgleft">
-                <img src="pictures/arrow.png" id="imgcentre">
-                <img src="pictures/utangrafisk.png" id="imgright">
+            <div id="gameholder">
             </div>
-            <div id="vidare2">
+            <div id="vidare2" onclick="hidemainpage();correctgame()">
                 <h1>Gå vidare</h1>
             </div>
         </div>
         
         <!------ end of "Börja spelet" !----->
-       
+
+        <!------ After you click on "Gå vidare" twice !----->
+
+        <div id="medgrafikpage">
+            <div class="megatext" id="textheader">Med grafisk feedback</div>
+            <div class="imglargegraf">
+                <img src="pictures/medgrafisk.png" style="width: 400px; height:400px;">
+            </div>
+            <div class="longtextgraf">
+                <div id="welcometext">
+                    <div id="väl">
+                        <p>Välkommen till spelet med grafisk feedback.</p>
+                    </div><br>
+                    <p>Din uppgift är att hjälpa Robert att plocka upp allt skräp som ligger utspritt. När du klickar på börja spelet kommer du att få reda på reglerna och få instruktioner kring hur du ska gå tillväga. Det är viktigt att notera att det finns två olika varianter av spelet. En där du får grafisk feedback och en variant utan grafisk feedback. Det spelet du börjar med kommer att slumpas och det är inte förens du är klar med det första spelet som du får börja på det andra.</p>
+                </div>
+            </div>
+            <div class="bigtextgraf" id="vidare1" onclick="startgame();gameshuffler()">
+                <h1>Gå vidare</h1>
+            </div>
+        </div>
+
+
+        <!------ footer !----->
+
          <div class="footerheader">
             <div id="kontakt"Kontakt>
                 <h2>Kontakt</h2>
