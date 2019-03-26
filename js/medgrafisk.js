@@ -1,12 +1,14 @@
 /*----- spel-funktionalitet -----------*/
 
 var ctx;
+var robertX;
+var robertY;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
+
 function initcanvas() {
     var canvas = document.getElementById("grafikcanvas");
     ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "#FF0000";
     ctx.strokeRect(0,0,500,500);
     for(i=0;i<500;i+=100){
         ctx.beginPath();
@@ -16,6 +18,17 @@ function initcanvas() {
         ctx.lineTo(i,500);
         ctx.stroke();
     }
+    robertX=0;
+    robertY=4;
+    drawrobert();
+}
+
+function drawrobert() {
+    ctx.beginPath();
+    ctx.rect((robertX*100)+10, (robertY*100)+25, 80, 50, 40);
+    ctx.stroke();
+    ctx.fillStyle = "#ce6039";
+    ctx.fill();
 }
 
 /*----- sid-funktionalitet -----------*/
