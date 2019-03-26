@@ -23,7 +23,6 @@
             margin-bottom: 20px;
             background-color: #eae7dc;
             position: relative;
-            top: -40px;
             z-index: 1;}
 
 
@@ -61,3 +60,13 @@ p {font-family: sans-serif;
 #vidare1 :hover {  cursor: pointer;
                    background-color: #222629;
                    border-radius: 15px;}
+
+.speldiven { height: 100%;
+             width: 100%;
+             background-color: #eae7dc;
+             position: absolute;
+             top: 100px;}
+
+canvas { background-color: aqua;}
+
+#grafikspelet { text-align: center;}

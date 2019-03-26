@@ -122,7 +122,7 @@ p {font-family: sans-serif;
              padding: 5px;}
 
 
-.gameholder { text-align: center;
+#gameholder { text-align: center;
               position: relative;
               width: 1000px;
               height: 300px;
