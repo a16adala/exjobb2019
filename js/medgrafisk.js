@@ -1,8 +1,10 @@
 /*----- spel-funktionalitet -----------*/
 
 var ctx;
-var robertX;
-var robertY;
+var robertX = 0;
+var robertY = 4;
+var beeperX = Math.floor((Math.random() * 4) + 1);
+var beeperY = Math.floor((Math.random() * 4) + 0);
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
@@ -18,16 +20,32 @@ function initcanvas() {
         ctx.lineTo(i,500);
         ctx.stroke();
     }
-    robertX=0;
-    robertY=4;
+    robertX;
+    robertY;
+    beeperX;
+    beeperY;
     drawrobert();
+    drawBeeper();
 }
 
 function drawrobert() {
     ctx.beginPath();
     ctx.rect((robertX*100)+10, (robertY*100)+25, 80, 50, 40);
+    ctx.strokeStyle = "#000000";
     ctx.stroke();
     ctx.fillStyle = "#ce6039";
+    ctx.fill();
+}
+
+function drawBeeper() {
+    ctx.beginPath();
+    ctx.arc((beeperX*100)+50, (beeperY*100)+50, 20, 0, 5 * Math.PI,
+    false);
+    ctx.shadowColor = '#f00000';
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.shadowBlur    = 25;
+    ctx.fillStyle = "#ff0000";
     ctx.fill();
 }
 
