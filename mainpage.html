@@ -21,9 +21,7 @@
     <script src="js/mainpage.js"></script>
     <script src="js/medgrafisk.js"></script>
     <script src="js/utangrafisk.js"></script>
-    <script>
-        initcanvas();
-    </script>
+    <script>initcanvas();</script>
 
     <!------ Start of website !----->
 
@@ -113,6 +111,13 @@
             <div class="grafikspel">
                 <div id="grafikspelet">
                     <canvas id="grafikcanvas" width="500px" height="500px"></canvas>
+                </div>
+                <div id="movebuttons">
+                    <button id="resetgame" onclick="resetgame()">Reset</button>
+                    <button id="resetgame" onclick="moveleft()">Left();</button>
+                    <button id="resetgame" onclick="moveright()">Right();</button>
+                    <button id="resetgame" onclick="moveup()">Up();</button>
+                    <button id="resetgame" onclick="movedown()">Down();</button>
                 </div>
             </div>
 

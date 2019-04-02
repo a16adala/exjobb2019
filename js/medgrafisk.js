@@ -1,10 +1,12 @@
-/*----- spel-funktionalitet -----------*/
+/*----- spel-funktionalitet lvl 1 -----------*/
 
 var ctx;
 var robertX = 0;
 var robertY = 4;
 var beeperX = Math.floor((Math.random() * 4) + 1);
 var beeperY = Math.floor((Math.random() * 4) + 0);
+var grafattemptslvl1 = 0;
+var grafattemptslvl2 = 0;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
@@ -48,6 +50,64 @@ function drawBeeper() {
     ctx.fillStyle = "#ff0000";
     ctx.fill();
 }
+
+function resetgame() {
+    location.reload();
+}
+
+function moveup() {
+    if (robertY>0) {
+        robertY--;
+        drawrobert();
+        grafattemptslvl1;
+        console.log(robertY);
+    } else {
+        alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        resetgame();
+        grafattemptslvl1++;
+    }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
+}
+
+function movedown() {
+    if (robertY<4) {
+        robertY++;
+        drawrobert();
+    } else {
+        alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        resetgame();
+        grafattemptslvl1;
+    }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
+}
+
+function moveright() {
+    if (robertX<4) {
+        robertX++;
+        drawrobert();
+    } else {
+        alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        resetgame();
+        grafattemptslvl1;
+    }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
+}
+
+function moveleft() {
+    if (robertX>0) {
+        robertX--;
+        drawrobert();
+    } else {
+        alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        resetgame();
+        grafattemptslvl1;
+    }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
+}
+
+
+
+/*----- spel-funktionalitet lvl 2 -----------*/
 
 /*----- sid-funktionalitet -----------*/
 
