@@ -51,11 +51,25 @@ function drawBeeper() {
     ctx.fill();
 }
 
+$(document).ready(function showcode() {
+    $(".movefunc").click(function showcode() {
+        var movefunc = $(this).html();
+        $("#runcode").append(movefunc);
+    });
+});
+
 function resetgame() {
     location.reload();
 }
 
-function moveup() {
+function run() {
+    var runnablecode = document.getElementById("runcode").value;
+    eval(runnablecode);
+    runcode.value = ' ';
+
+}
+
+function Up() {
     if (robertY>0) {
         robertY--;
         drawrobert();
@@ -69,7 +83,7 @@ function moveup() {
     localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
-function movedown() {
+function Down() {
     if (robertY<4) {
         robertY++;
         drawrobert();
@@ -81,7 +95,7 @@ function movedown() {
     localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
-function moveright() {
+function Right() {
     if (robertX<4) {
         robertX++;
         drawrobert();
@@ -93,7 +107,7 @@ function moveright() {
     localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
-function moveleft() {
+function Left() {
     if (robertX>0) {
         robertX--;
         drawrobert();
