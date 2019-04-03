@@ -19,13 +19,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/mainpage.js"></script>
-    <script src="js/medgrafisk.js"></script>
-    <script src="js/utangrafisk.js"></script>
-    <script>initcanvas();</script>
 
     <!------ Start of website !----->
 
-    <body onload="hidemainpage();correctgame();medgrafik()">
+    <body onload="pagedefault();medgrafik();utangrafik()">
         
         <div class="progressbar">
             <img src="pictures/progress1.png" id="progress">
@@ -97,49 +94,31 @@
                     <p>Din uppgift är att hjälpa Robert att plocka upp allt skräp som ligger utspritt. När du klickar på börja spelet kommer du att få reda på reglerna och få instruktioner kring hur du ska gå tillväga. Det är viktigt att notera att det finns två olika varianter av spelet. En där du får grafisk feedback och en variant utan grafisk feedback. Det spelet du börjar med kommer att slumpas och det är inte förens du är klar med det första spelet som du får börja på det andra2.</p>
                 </div>
             </div>
-            <div class="bigtextgraf" id="vidare1" onclick="medgrafik()">
-                <h1>Gå vidare</h1>
+            <div class="bigtextgraf" id="vidare3">
             </div>
         </div>
 
-        <!------ Start på html för spelen !----->
+        <!------ Start på Spelet utan grafik !----->
 
-        <div class="speldiven">
-
-            <!------ Start på Spelet med grafik !----->
-
-            <div class="grafikspel">
-                <div id="grafikspelet">
-                    <canvas id="grafikcanvas" width="500px" height="500px"></canvas>
-                </div>
-                <div id="movebuttons">
-                    <button id="resetgame" onclick="resetgame()">Reset</button>
-                    <button class="movefunc" id="clickleft" onclick="showcode()">Left();</button>
-                    <button class="movefunc" id="clickright" onclick="showcode()">Right();</button>
-                    <button class="movefunc" id="clickup" onclick="showcode()">Up();</button>
-                    <button class="movefunc" id="clickdown" onclick="showcode()">Down();</button>
-                    <button id="resetgame" onclick="run()">Run();</button>
-                </div>
-                <div id="gamecode">
-                    <textarea id="runcode"></textarea>
+       <div id="utangrafikpage">
+            <div class="megatext" id="textheader">Utan grafisk feedback</div>
+            <div class="imglargegraf">
+                <img src="pictures/utangrafisk.png" style="width: 300px; height:300px;">
+            </div>
+            <div class="longtextgraf">
+                <div id="welcometext">
+                    <div id="väl">
+                        <p>Välkommen till spelet utan grafisk feedback.</p>
+                    </div><br>
+                    <p>Din uppgift är att hjälpa Robert att plocka upp allt skräp som ligger utspritt. När du klickar på börja spelet kommer du att få reda på reglerna och få instruktioner kring hur du ska gå tillväga. Det är viktigt att notera att det finns två olika varianter av spelet. En där du får grafisk feedback och en variant utan grafisk feedback. Det spelet du börjar med kommer att slumpas och det är inte förens du är klar med det första spelet som du får börja på det andra2.</p>
                 </div>
             </div>
-
-            <!------ Slut på Spelet med grafik !----->
-
-            <div class="textspel">
-                <div id="textspelet">
-                    sah da text
-                </div>
+            <div class="bigtextgraf" id="vidare4">
             </div>
-
-            <!------ Start på Spelet utan grafik !----->
-
-
+        </div>
 
             <!------ Slut på Spelet utan grafik !----->
 
-        </div>
 
         <!------ Slut på html för spelen !----->
 

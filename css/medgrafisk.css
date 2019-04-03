@@ -46,10 +46,16 @@ p {font-family: sans-serif;
            font-family:Consolas;
            margin: 0px auto;}
 
+a:link {text-decoration: none;
+        color: #86c232;}
+
+a:hover {text-decoration: none;}
+
+a:visited {text-decoration: none;
+           color: #86c232;}
 
 
-
-#vidare1 {   color: #86c232;
+#vidare3 {   color: #86c232;
              width: 250px;
              height: 50px;
              background-color: #474b4f;
@@ -57,7 +63,7 @@ p {font-family: sans-serif;
              border-radius: 15px;
              margin-bottom: 40px;}
 
-#vidare1 :hover {  cursor: pointer;
+#vidare3 :hover {  cursor: pointer;
                    background-color: #222629;
                    border-radius: 15px;}
 
@@ -74,3 +80,14 @@ canvas { background-color: #ffffff;
          box-shadow: 0 0 5px 5px #888;}
 
 #grafikspelet { text-align: center;}
+
+#nextlevel {width: 70px;
+            height: 50px;
+            background-color: darkgrey;
+            border: solid 2px black;
+            text-align: center;
+            line-height: 50px;}
+
+.nextlevelactive { background-color: limegreen;}
+
+.nextlevelactive :hover { cursor: pointer;}

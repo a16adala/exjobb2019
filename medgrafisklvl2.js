@@ -1,16 +1,16 @@
-/*----- spel-funktionalitet lvl 1 -----------*/
+/*----- spel-funktionalitet lvl 2 -----------*/
 
 var ctx;
 var robertX = 0;
 var robertY = 4;
 var beeperX = Math.floor((Math.random() * 4) + 1);
 var beeperY = Math.floor((Math.random() * 4) + 0);
+var beeper2X = Math.floor((Math.random() * 4) + 1);
+var beeper2Y = Math.floor((Math.random() * 4) + 0);
 var grafattemptslvl1 = 1;
 var grafattemptslvl2 = 1;
-var lvl1done = 0;
-var timer;
-var timer2;
-var picked;
+var collectedbeepers = 0;
+var lvl2done = 0;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
@@ -30,12 +30,11 @@ function initcanvas() {
     robertY;
     beeperX;
     beeperY;
+    beeper2X;
+    beeper2Y;
     drawrobert();
+    beeperfix();
     drawBeeper();
-}
-
-function TTC() {
-    timer = performance.now();
 }
 
 function drawrobert() {
@@ -47,9 +46,18 @@ function drawrobert() {
     ctx.fill();
 }
 
+function beeperfix() {
+    while (beeperX == beeper2X && beeperY == beeper2Y) {
+        beeper2X = Math.floor((Math.random() * 4) + 1);
+        beeper2Y = Math.floor((Math.random() * 4) + 0);
+    }
+}
+
 function drawBeeper() {
     ctx.beginPath();
     ctx.arc((beeperX*100)+50, (beeperY*100)+50, 20, 0, 5 * Math.PI,
+    false);
+    ctx.arc((beeper2X*100)+50, (beeper2Y*100)+50, 20, 0, 5 * Math.PI,
     false);
     ctx.shadowColor = '#f00000';
     ctx.shadowOffsetX = 0;
@@ -71,10 +79,10 @@ function resetgame() {
 }
 
 function run() {
-    pickUp();
     var runnablecode = document.getElementById("runcode").value;
     eval(runnablecode);
     runcode.value = ' ';
+
 }
 
 function Up() {
@@ -84,9 +92,10 @@ function Up() {
         console.log(robertY);
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        grafattemptslvl1++;
         resetgame();
+        grafattemptslvl1++;
     }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Down() {
@@ -95,9 +104,10 @@ function Down() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        grafattemptslvl1++;
         resetgame();
+        grafattemptslvl1++;
     }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Right() {
@@ -106,9 +116,10 @@ function Right() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        grafattemptslvl1++;
         resetgame();
+        grafattemptslvl1++;
     }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Left() {
@@ -117,37 +128,37 @@ function Left() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        grafattemptslvl1++;
         resetgame();
+        grafattemptslvl1++;
     }
+    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function pickUp() {
-    if (robertX == beeperX && robertY == beeperY) {
-        localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
-        timer2 = performance.now();
-        var ttc = timer - timer2;
-        console.log("TTC = " + ttc + " milliseconds.");
-        drawrobert();
-        alert("Bra jobbat du är klar med första nivån!");
-        lvl1done = 1;
-        lvl1completed();
-        console.log(grafattemptslvl1);
+    if (robertX == beeperX && robertY == beeperY || robertX == beeper2X && robertY == beeper2Y) {
+        collectedbeepers++;
+        if (collectedbeepers == 2) {
+            drawrobert();
+            alert("Bra jobbat du är klar med andra nivån!");
+            lvl2done = 1;
+            lvl2completed();
+        }
     }
     else {
-        alert("Du har inte plockat upp beepern. Försök igen!");
-        grafattemptslvl1++;
+        alert("Du har inte plockat upp alla beepers. Försök igen!");
         resetgame();
+        grafattemptslvl1++;
     }
+    localStorage.setItem("grafattemptslvl1++", grafattemptslvl1++);
 }
 
-function lvl1completed() {
+function lvl2completed() {
     $("#nextlevel").addClass("nextlevelactive");
 }
 
 function nextlevel() {
-    if (lvl1done == 1) {
-        alert("level2");
+    if (lvl2done == 1) {
+        alert("klar");
     }
     else {
         console.log("inte klar");

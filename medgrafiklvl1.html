@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <title>Välkommen</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!------ CSS !----->
+
+    <link rel="stylesheet" href="css/mainpage.css">
+    <link rel="stylesheet" href="css/medgrafisk.css">
+    <link rel="stylesheet" href="css/utangrafisk.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!------ JavaScript !----->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/mainpage.js"></script>
+    <script src="js/medgrafisk.js"></script>
+    <script src="js/utangrafisk.js"></script>
+    <script>initcanvas();</script>
+
+    <!------ Start of website !----->
+
+    <body onload="">
+    <!------ Start på html för spelen !----->
+
+        <div class="speldiven">
+
+        <!------ Start på Spelet med grafik !----->
+
+            <div class="grafikspel">
+                <div id="grafikspelet">
+                    <canvas id="grafikcanvas" width="500px" height="500px"></canvas>
+                </div>
+                <div id="movebuttons">
+                    <button id="resetgame" onclick="resetgame()">Reset</button>
+                    <button class="movefunc" id="clickleft" onclick="showcode()">Left();</button>
+                    <button class="movefunc" id="clickright" onclick="showcode()">Right();</button>
+                    <button class="movefunc" id="clickup" onclick="showcode()">Up();</button>
+                    <button class="movefunc" id="clickdown" onclick="showcode()">Down();</button>
+                    <button class="movefunc" id="clickdown" onclick="showcode()">pickUp();</button>
+                    <button id="resetgame" onclick="run()">Run();</button>
+                </div>
+                <div id="gamecode">
+                    <textarea id="runcode"></textarea>
+                </div>
+                <div id="nextlevel" onclick="nextlevel()">
+                    Nästa nivå
+                </div>
+            </div>
+    </body>
+</html>
