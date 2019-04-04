@@ -229,3 +229,11 @@ textarea{
 #savenamebutton {position: relative;
                  text-align: center;
                  margin-top: 20px;}
+
+a:link {text-decoration: none;
+        color: #86c232;}
+
+a:hover {text-decoration: none;}
+
+a:visited {text-decoration: none;
+           color: #86c232;}

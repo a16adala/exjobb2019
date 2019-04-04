@@ -6,11 +6,12 @@ var robertY = 4;
 var beeperX = Math.floor((Math.random() * 4) + 1);
 var beeperY = Math.floor((Math.random() * 4) + 0);
 var grafattemptslvl1 = 1;
-var grafattemptslvl2 = 1;
 var lvl1done = 0;
 var timer;
 var timer2;
 var picked;
+var collectedbeepers = 0;
+var runpickup = 0;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
@@ -32,6 +33,10 @@ function initcanvas() {
     beeperY;
     drawrobert();
     drawBeeper();
+}
+
+function lvl1default() {
+    document.getElementById('nextlevel').innerHTML = '<h2>Nästa nivå</h2>';
 }
 
 function TTC() {
@@ -67,14 +72,24 @@ $(document).ready(function showcode() {
 });
 
 function resetgame() {
+    runpickup = 0;
     location.reload();
 }
 
+function checkpick() {
+    runpickup = 1;
+}
+
 function run() {
-    pickUp();
-    var runnablecode = document.getElementById("runcode").value;
-    eval(runnablecode);
-    runcode.value = ' ';
+    if (runpickup == 0) {
+        alert('Du har inte använt "pickUp();" innan du körde. Försök igen!');
+        resetgame()
+    }
+    else {
+        var runnablecode = document.getElementById("runcode").value;
+        eval(runnablecode);
+        runcode.value = ' ';
+    }
 }
 
 function Up() {
@@ -128,8 +143,6 @@ function pickUp() {
         timer2 = performance.now();
         var ttc = timer - timer2;
         console.log("TTC = " + ttc + " milliseconds.");
-        drawrobert();
-        alert("Bra jobbat du är klar med första nivån!");
         lvl1done = 1;
         lvl1completed();
         console.log(grafattemptslvl1);
@@ -142,7 +155,11 @@ function pickUp() {
 }
 
 function lvl1completed() {
+    //drawrobert();
+    alert("Bra jobbat du är klar med första nivån!");
+    lvl1done = 1;
     $("#nextlevel").addClass("nextlevelactive");
+    document.getElementById('nextlevel').innerHTML =  '<a href="medgrafiklvl2.html" id="lvl2">' + '<h2>Nästa nivå</h2>' + '</a>';
 }
 
 function nextlevel() {
