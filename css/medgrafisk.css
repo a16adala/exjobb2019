@@ -51,17 +51,6 @@ p {font-family: sans-serif;
 #lvl2 {text-decoration: none;
        color: black;}
 
-#vidare3 {   color: #86c232;
-             width: 250px;
-             height: 50px;
-             background-color: #474b4f;
-             line-height: 50px;
-             border-radius: 15px;
-             margin-bottom: 40px;}
-
-#vidare3 :hover {  cursor: pointer;
-                   background-color: #222629;
-                   border-radius: 15px;}
 
         /* spellvl1 */
 
