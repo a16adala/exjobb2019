@@ -9,9 +9,7 @@
 
     <!------ CSS !----->
 
-    <link rel="stylesheet" href="css/mainpage.css">
     <link rel="stylesheet" href="css/medgrafisk.css">
-    <link rel="stylesheet" href="css/utangrafisk.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,31 +22,39 @@
 
     <!------ Start of website !----->
 
-    <body onload="">
+    <body onload="lvl2default();TTC()">
     <!------ Start på html för spelen !----->
 
         <div class="speldiven">
 
         <!------ Start på Spelet med grafik !----->
 
+            <div id="lvlinstruktions">
+                <h3>texthär exthä exthä exthäexthä vexthä exthä hä</h3>
+                exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
+                <BR>
+                <br>
+                <h3>Tips</h3>
+                exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
+            </div>
+
             <div class="grafikspel">
                 <div id="grafikspelet">
                     <canvas id="grafikcanvas" width="500px" height="500px"></canvas>
                 </div>
                 <div id="movebuttons">
-                    <button id="resetgame" onclick="resetgame()">Reset</button>
+                    <button id="resetgame" onclick="Clear()">Clear()</button>
                     <button class="movefunc" id="clickleft" onclick="showcode()">Left();</button>
                     <button class="movefunc" id="clickright" onclick="showcode()">Right();</button>
                     <button class="movefunc" id="clickup" onclick="showcode()">Up();</button>
                     <button class="movefunc" id="clickdown" onclick="showcode()">Down();</button>
-                    <button class="movefunc" id="clickdown" onclick="showcode()">pickUp();</button>
-                    <button id="resetgame" onclick="run()">Run();</button>
+                    <button class="movefunc" id="clickdown" onclick="checkpick2();showcode()">pickUp();</button>
                 </div>
-                <div id="gamecode">
-                    <textarea id="runcode"></textarea>
+                 <div id="gamecode">
+                    <textarea id="runcode" rows="3" cols="20"></textarea>
                 </div>
-                <div id="nextlevel" onclick="nextlevel()">
-                    Avsluta
+                <button id="runbutton" onclick="run()">Run();</button>
+                <div id="finnishgraf" onclick="finnishgraf()">
                 </div>
             </div>
     </body>

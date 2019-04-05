@@ -26,9 +26,10 @@ function savename() {
 }
 
 function printstats() {
-    document.getElementById("username").innerHTML = '<h2>Namn:</h2> ' +  '<h3>' + localStorage.getItem("username", username) + '</h3>';
-    document.getElementById("tidmedgrafik").innerHTML = '<h2>Tid på spelet med grafik:</h2> ';
-    document.getElementById("tidutangrafik").innerHTML = '<h2>Tid på spelet utan grafik:</h2> ';
+    document.getElementById("username").innerHTML = '<h2>Namn:</h2> ' +  localStorage.getItem("username", username);
+    document.getElementById("tidmedgrafik").innerHTML = '<h2>Tider & försök på spelet med grafisk feedback:</h2>' + '<h3>' + 'Level 1: ' + '</h3>' + localStorage.getItem("ttc", ttc) + '<h3>' + 'Försök: ' + '</h3>' + localStorage.getItem("grafattemptslvl1", grafattemptslvl1) + '<br>' + '<h3>' + 'Tid level 2: ' + '</h3>' + localStorage.getItem("ttc2", ttc2) + '<h3>' + 'Försök: ' + '</h3>' + localStorage.getItem("grafattemptslvl2", grafattemptslvl2);
+
+    document.getElementById("tidutangrafik").innerHTML = '<h2>Tider & försök på spelet utan grafisk feedback:</h2> ' + '<h3>' + 'Level 1: ' + '</h3>' + localStorage.getItem("ttc", ttc) + '<h3>' + 'Försök: ' + '</h3>' + '3' + '<br>' + '<h3>' + 'Level 2: ' + '</h3>' + '324' + '<h3>' + 'Försök: ' + '</h3>' + '4';
 }
 
 function gameshuffler() {
