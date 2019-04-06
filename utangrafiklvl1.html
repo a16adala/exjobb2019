@@ -9,8 +9,6 @@
 
     <!------ CSS !----->
 
-    <link rel="stylesheet" href="css/mainpage.css">
-    <link rel="stylesheet" href="css/medgrafisk.css">
     <link rel="stylesheet" href="css/utangrafisk.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,12 +17,56 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/mainpage.js"></script>
-    <script src="js/medgrafisk.js"></script>
     <script src="js/utangrafisk.js"></script>
     <script>initcanvas();</script>
 
     <!------ Start of website !----->
 
-    <body onload="">
+    <body onload="lvl1default();showtextarea();TTC();storebeeperpos()">
+         <!------ Start på html för spelen !----->
+
+        <div class="speldiven">
+
+        <!------ Start på Spelet med grafik !----->
+
+            <div id="lvlinstruktions">
+                <h3>Instruktioner</h3>
+                Robert befinner sig på ett spelfält på 5x5 meter. Varje steg du tar kommer att röra Robert en meter åt det hållet.
+                För att klara av nivån måste du kombinera rätt kod för Robert. När du tror att koden är korrekt så trycker du på Run();.
+                På den här nivån finns det endast en beeper och om din kod är rätt så får du gå vidare till nästa nivå. Om koden däremot
+                är inkorrekt får du försöka igen.
+                <br><br>
+                <b>OBS Om det inte går att använda knapparna, tryck på Clear();.</b>
+                <br>
+                <h3>Tips</h3>
+                <li>Clear(); - Tömmer textfältet</li>
+                <li>Left(); - Gå vänster</li>
+                <li>Right(); - Gå höger</li>
+                <li>Up(); - Gå uppåt</li>
+                <li>Down(); - Gå neråt</li>
+                <li>pickUp(); - Plocka upp beeper</li>
+            </div>
+            <div class="grafikspel">
+                <div id="grafikspelet">
+                    <canvas id="grafikcanvas" width="500px" height="500px"></canvas>
+                </div>
+                <div id="utangrafikspel">
+                    <h2>Robert =</h2> <h3>X - 0</h3> <h3>Y - 4</h3>
+                    <h2>Beeper =</h2> <h3>X - <span id="beeperX"></span></h3> <h3>Y - <span id="beeperY"></span></h3>
+                </div>
+                <div id="movebuttons">
+                    <button id="resetgame" onclick="Clear()">Clear();</button>
+                    <button class="movefunc" id="clickleft" onclick="showcode()">Left();</button>
+                    <button class="movefunc" id="clickright" onclick="showcode()">Right();</button>
+                    <button class="movefunc" id="clickup" onclick="showcode()">Up();</button>
+                    <button class="movefunc" id="clickdown" onclick="showcode()">Down();</button>
+                    <button class="movefunc" id="pickup" onclick="checkpick();showcode()">pickUp();</button>
+                </div>
+                <div id="gamecode" onload="">
+                </div>
+                <button id="runbutton" onclick="run()">Run();</button>
+                <div id="nextlevel">
+                </div>
+            </div>
     </body>
 </html>

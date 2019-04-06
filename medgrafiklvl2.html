@@ -22,7 +22,7 @@
 
     <!------ Start of website !----->
 
-    <body onload="lvl2default();TTC()">
+    <body onload="lvl2default();showtextarea();TTC()">
     <!------ Start på html för spelen !----->
 
         <div class="speldiven">
@@ -30,12 +30,19 @@
         <!------ Start på Spelet med grafik !----->
 
             <div id="lvlinstruktions">
-                <h3>texthär exthä exthä exthäexthä vexthä exthä hä</h3>
-                exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
-                <BR>
+                <h3>Instruktioner</h3>
+                På den här nivån finns det två beepers och om din kod är rätt så får du gå vidare. Om koden däremot
+                är inkorrekt får du försöka igen.
+                <br><br>
+                <b>OBS Om det inte går att använda knapparna, tryck på Clear();.</b>
                 <br>
                 <h3>Tips</h3>
-                exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
+                <li>Clear(); - Tömmer textfältet</li>
+                <li>Left(); - Gå vänster</li>
+                <li>Right(); - Gå höger</li>
+                <li>Up(); - Gå uppåt</li>
+                <li>Down(); - Gå neråt</li>
+                <li>pickUp(); - Plocka upp beeper</li>
             </div>
 
             <div class="grafikspel">
@@ -51,10 +58,9 @@
                     <button class="movefunc" id="clickdown" onclick="checkpick2();showcode()">pickUp();</button>
                 </div>
                  <div id="gamecode">
-                    <textarea id="runcode" rows="3" cols="20"></textarea>
                 </div>
                 <button id="runbutton" onclick="run()">Run();</button>
-                <div id="finnishgraf" onclick="finnishgraf()">
+                <div id="finnishgraf">
                 </div>
             </div>
     </body>

@@ -116,7 +116,7 @@ canvas { background-color: #ffffff;
             font-family: sans-serif;
             color: lightgrey;}
 
-.finnishgraf { background-color: limegreen !important;
+.finnishgrafactive { background-color: limegreen !important;
                    cursor: pointer;}
 
 #grafdone  {text-decoration: none;

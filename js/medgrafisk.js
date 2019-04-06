@@ -17,6 +17,8 @@ var runnablecode = 0;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
+console.log(beeperX, beeperY);
+
 function initcanvas() {
     var canvas = document.getElementById("grafikcanvas");
     ctx = canvas.getContext("2d");
@@ -183,13 +185,4 @@ function lvl1completed() {
     lvl1done = 1;
     $("#nextlevel").addClass("nextlevelactive");
     document.getElementById('nextlevel').innerHTML =  '<a href="medgrafiklvl2.html" id="lvl2">' + '<h2>Nästa nivå</h2>' + '</a>';
-}
-
-function nextlevel() {
-    if (lvl1done == 1) {
-        alert("level2");
-    }
-    else {
-        console.log("inte klar");
-    }
 }

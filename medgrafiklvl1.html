@@ -30,12 +30,19 @@
         <!------ Start på Spelet med grafik !----->
 
             <div id="lvlinstruktions">
-                <h3>texthär exthä exthä exthäexthä vexthä exthä hä</h3>
-                exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
-                <BR>
+                <h3>Instruktioner</h3>
+                Hjälp Robert att plocka alla beepers. Varje steg du tar kommer att röra Robert ett steg åt det hållet.
+                För att klara av nivån måste du kombinera rätt kod för Robert. När du tror att koden är korrekt så trycker du på Run();
+                <br><br>
+                <b>OBS Om det inte går att använda knapparna, tryck på Clear();.</b>
                 <br>
                 <h3>Tips</h3>
-                exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthähä exthäexthä vexthä exthä
+                <li>Clear(); - Tömmer textfältet</li>
+                <li>Left(); - Gå vänster</li>
+                <li>Right(); - Gå höger</li>
+                <li>Up(); - Gå uppåt</li>
+                <li>Down(); - Gå neråt</li>
+                <li>pickUp(); - Plocka upp beeper</li>
             </div>
             <div class="grafikspel">
                 <div id="grafikspelet">
@@ -52,7 +59,7 @@
                 <div id="gamecode" onload="">
                 </div>
                 <button id="runbutton" onclick="run()">Run();</button>
-                <div id="nextlevel" onclick="nextlevel()">
+                <div id="nextlevel">
                 </div>
             </div>
     </body>

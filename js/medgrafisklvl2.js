@@ -7,10 +7,14 @@ var beeperX = Math.floor((Math.random() * 4) + 1);
 var beeperY = Math.floor((Math.random() * 4) + 0);
 var beeper2X = Math.floor((Math.random() * 4) + 1);
 var beeper2Y = Math.floor((Math.random() * 4) + 0);
-var grafattemptslvl1 = 1;
 var grafattemptslvl2 = 1;
-var collectedbeepers = 0;
+var collectedbeepers2 = 0;
 var lvl2done = 0;
+var runpickup2 = 0;
+var timer3;
+var timer4;
+var ttc2;
+var runnablecode2 = 0;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
@@ -37,6 +41,14 @@ function initcanvas() {
     drawBeeper();
 }
 
+function lvl2default() {
+    document.getElementById('finnishgraf').innerHTML = '<h2>Avsluta</h2>';
+}
+
+function TTC() {
+    timer3 = performance.now();
+}
+
 function drawrobert() {
     ctx.beginPath();
     ctx.rect((robertX*100)+10, (robertY*100)+25, 80, 50, 40);
@@ -52,6 +64,8 @@ function beeperfix() {
         beeper2Y = Math.floor((Math.random() * 4) + 0);
     }
 }
+
+console.log(beeperX, beeperY, beeper2X, beeper2Y);
 
 function drawBeeper() {
     ctx.beginPath();
@@ -75,14 +89,33 @@ $(document).ready(function showcode() {
 });
 
 function resetgame() {
+    runpickup2 = 0;
     location.reload();
 }
 
-function run() {
-    var runnablecode = document.getElementById("runcode").value;
-    eval(runnablecode);
-    runcode.value = ' ';
+function checkpick2() {
+    runpickup2 = 1;
+}
 
+function Clear() {
+    showtextarea();
+}
+
+function showtextarea() {
+    var text = document.getElementById('gamecode').innerHTML = '<textarea id="runcode" rows="3" cols="20"></textarea>';
+}
+
+function run() {
+    if (runpickup2 == 0) {
+        alert('Du har inte använt "pickUp();" innan du körde. Försök igen!');
+        grafattemptslvl2++;
+        Clear();
+    }
+    else {
+        var runnablecode = document.getElementById("runcode").value;
+        eval(runnablecode);
+        runcode.value = ' ';
+    }
 }
 
 function Up() {
@@ -92,10 +125,9 @@ function Up() {
         console.log(robertY);
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        resetgame();
-        grafattemptslvl1++;
+        grafattemptslvl2++;
+        Clear();
     }
-    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Down() {
@@ -104,10 +136,9 @@ function Down() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        resetgame();
-        grafattemptslvl1++;
+        grafattemptslvl2++;
+        Clear();
     }
-    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Right() {
@@ -116,10 +147,9 @@ function Right() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        resetgame();
-        grafattemptslvl1++;
+        grafattemptslvl2++;
+        Clear();
     }
-    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function Left() {
@@ -128,39 +158,37 @@ function Left() {
         drawrobert();
     } else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
-        resetgame();
-        grafattemptslvl1++;
+        grafattemptslvl2++;
+        Clear();
     }
-    localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
 }
 
 function pickUp() {
     if (robertX == beeperX && robertY == beeperY || robertX == beeper2X && robertY == beeper2Y) {
-        collectedbeepers++;
-        if (collectedbeepers == 2) {
-            drawrobert();
-            alert("Bra jobbat du är klar med andra nivån!");
-            lvl2done = 1;
+        collectedbeepers2++;
+        if (collectedbeepers2 == 2) {
+            localStorage.setItem("grafattemptslvl2", grafattemptslvl2);
+            timer4 = performance.now();
+            ttc2 = timer3 - timer4;
+            localStorage.setItem("ttc2", ttc2);
+            console.log("TTC = " + ttc2 + " milliseconds.");
             lvl2completed();
         }
     }
     else {
         alert("Du har inte plockat upp alla beepers. Försök igen!");
-        resetgame();
-        grafattemptslvl1++;
+        grafattemptslvl2++;
+        Clear();
     }
-    localStorage.setItem("grafattemptslvl1++", grafattemptslvl1++);
 }
 
 function lvl2completed() {
-    $("#nextlevel").addClass("nextlevelactive");
-}
-
-function nextlevel() {
-    if (lvl2done == 1) {
-        alert("klar");
+    alert("Bra jobbat du är klar med spelet med grafisk feedback!");
+    $("#finnishgraf").addClass("finnishgrafactive");
+    if (localStorage.getItem('gameorder', gameorder) == 1) {
+        document.getElementById('finnishgraf').innerHTML =  '<a href="utangrafiklvl1.html" id="lvl2">' + '<h2>Nästa spel</h2>' + '</a>';
     }
-    else {
-        console.log("inte klar");
+    else if (localStorage.getItem('gameorder', gameorder) == 2) {
+        document.getElementById('finnishgraf').innerHTML =  '<a href="inquiry.html" id="lvl2">' + '<h2>Avsluta</h2>' + '</a>';
     }
 }
