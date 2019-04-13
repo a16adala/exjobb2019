@@ -67,7 +67,7 @@ canvas { background-color: #ffffff;
                 float: right;
                margin-right: 40px;}
 
-#grafikspelet {display: block;}
+#grafikspelet {display: none;}
 
 #movebuttons {float: right;
               position: absolute;
@@ -119,7 +119,8 @@ canvas { background-color: #ffffff;
             color: lightgrey;}
 
 .finnishtextactive { background-color: limegreen !important;
-                   cursor: pointer;}
+                   cursor: pointer;
+                    color: black !important;}
 
 #grafdone  {text-decoration: none;
             color: black;}

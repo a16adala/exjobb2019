@@ -35,7 +35,6 @@ function printstats() {
 function gameshuffler() {
     gameorder = Math.floor((Math.random() * 2) + 1);
     localStorage.setItem('gameorder', gameorder);
-    //gameorder = 1;
     if (gameorder == 1) {
         var gameshuffle = '<img src="pictures/medgrafisk.png" id="imgleft" onclick="clickgame()">' +
                 '<img src="pictures/arrow.png" id="imgcentre">' +
@@ -65,19 +64,14 @@ function hidemainpage() {
 }
 
 function correctgame() {
-    //$('.speldiven').show();
     if (gameorder == 1) {
         gameorder == document
         document.title = 'Med grafisk feedback';
-        /* var gamepreview = '';
-        document.getElementById("gamepreview").innerHTML = gamepreview;*/
         $('#medgrafikpage').show();
         $('#utangrafikpage').hide();
     }
     else {
         document.title = 'Utan grafisk feedback';
-        /*var gamepreview = '';
-        document.getElementById("gamepreview").innerHTML = gamepreview;*/
         $('#medgrafikpage').hide();
         $('#utangrafikpage').show();
     }

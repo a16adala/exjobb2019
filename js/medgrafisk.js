@@ -5,19 +5,16 @@ var robertX = 0;
 var robertY = 4;
 var beeperX = Math.floor((Math.random() * 4) + 1);
 var beeperY = Math.floor((Math.random() * 4) + 0);
-var grafattemptslvl1 = 1;
-var lvl1done = 0;
-var timer;
-var timer2;
-var picked;
-var collectedbeepers = 0;
+var grafattemptslvl1;
 var runpickup = 0;
 var ttc;
-var runnablecode = 0;
+var wallcrash = 0;
+var pickupFail = 0;
+var x;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
-console.log(beeperX, beeperY);
+console.log(localStorage.getItem('grafattemptslvl1', grafattemptslvl1)); //ta bort sen
 
 function initcanvas() {
     var canvas = document.getElementById("grafikcanvas");
@@ -44,7 +41,26 @@ function lvl1default() {
 }
 
 function TTC() {
-    timer = performance.now();
+    if (localStorage.getItem('x', x) == null) {
+        console.log('local tom'); //ta bort sen
+        var start = new Date();
+        x = start.getTime();
+        localStorage.setItem('x', x);
+    }
+    else {
+        x = localStorage.getItem('x', x);
+        console.log('local fylld');  //ta bort sen
+    }
+}
+
+function mGlvl1A() {
+    if (localStorage.getItem('grafattemptslvl1', grafattemptslvl1) == null) {
+        grafattemptslvl1 = 1;
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+    }
+    else {
+        grafattemptslvl1 = localStorage.getItem('grafattemptslvl1', grafattemptslvl1);
+    }
 }
 
 function drawrobert() {
@@ -96,10 +112,11 @@ function run() {
     if (runpickup == 0) {
         alert('Du har inte använt "pickUp();" innan du körde. Försök igen!');
         grafattemptslvl1++;
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
         Clear();
     }
     else {
-        runnablecode = document.getElementById("runcode").value;
+        var runnablecode = document.getElementById("runcode").value;
         eval(runnablecode);
         runcode.value = ' ';
     }
@@ -109,10 +126,16 @@ function Up() {
     if (robertY>0) {
         robertY--;
         drawrobert();
-    } else {
+    }
+    else if (pickupFail == 1) {
+        resetgame();
+    }
+    else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        wallcrash = 1;
         grafattemptslvl1++;
-        Clear();
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+        resetgame();
     }
 }
 
@@ -120,10 +143,16 @@ function Down() {
     if (robertY<4) {
         robertY++;
         drawrobert();
-    } else {
+    }
+    else if (pickupFail == 1) {
+        resetgame();
+    }
+    else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        wallcrash = 1;
         grafattemptslvl1++;
-        Clear();
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+        resetgame();
     }
 }
 
@@ -131,10 +160,16 @@ function Right() {
     if (robertX<4) {
         robertX++;
         drawrobert();
-    } else {
+    }
+    else if (pickupFail == 1) {
+        resetgame();
+    }
+    else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        wallcrash = 1;
         grafattemptslvl1++;
-        Clear();
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+        resetgame();
     }
 }
 
@@ -142,47 +177,45 @@ function Left() {
     if (robertX>0) {
         robertX--;
         drawrobert();
-    } else {
+    }
+    else if (pickupFail == 1) {
+        resetgame();
+    }
+    else {
         alert("Det verkar som Robert gick rakt in i en vägg och gick sönder. Försök igen!");
+        wallcrash = 1;
         grafattemptslvl1++;
-        Clear();
+        localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+        resetgame();
     }
 }
 
 function pickUp() {
     if (robertX == beeperX && robertY == beeperY) {
-        if (grafattemptslvl1 == 1) {
-            localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
-            console.log(grafattemptslvl1);
-            timer2 = performance.now();
-            ttc = timer - timer2;
-            localStorage.setItem("ttc", ttc);
-            console.log("TTC = " + ttc + " milliseconds.");
-            lvl1done = 1;
-            lvl1completed();
-        }
-        else {
-            localStorage.setItem("grafattemptslvl1", grafattemptslvl1);
-            console.log(grafattemptslvl1);
-            timer2 = performance.now();
-            ttc = timer - timer2;
-            localStorage.setItem("ttc", ttc);
-            console.log("TTC = " + ttc + " milliseconds.");
-            lvl1done = 1;
-            lvl1completed();
-        }
+        var stop = new Date();
+        var y = stop.getTime();
+        ttc = localStorage.getItem('x', x) - y;
+        localStorage.setItem('ttc', ttc);
+        lvl1completed();
     }
     else {
-        alert("Du har inte plockat upp beepern. Försök igen!");
-        grafattemptslvl1++;
-        Clear();
+        if (wallcrash == 1) {
+            resetgame();
+        }
+        else {
+            alert("Du har inte plockat upp beepern. Försök igen!");
+            pickupFail = 1;
+            grafattemptslvl1++;
+            localStorage.setItem('grafattemptslvl1', grafattemptslvl1);
+            resetgame();
+        }
     }
 }
 
 function lvl1completed() {
-    //drawrobert();
+    console.log(localStorage.getItem('ttc', ttc)); //ta bort sen
+    console.log(localStorage.getItem("grafattemptslvl1", grafattemptslvl1)); //ta bort sen
     alert("Bra jobbat du är klar med första nivån!");
-    lvl1done = 1;
     $("#nextlevel").addClass("nextlevelactive");
     document.getElementById('nextlevel').innerHTML =  '<a href="medgrafiklvl2.html" id="lvl2">' + '<h2>Nästa nivå</h2>' + '</a>';
 }

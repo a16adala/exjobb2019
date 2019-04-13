@@ -117,7 +117,8 @@ canvas { background-color: #ffffff;
             color: lightgrey;}
 
 .finnishgrafactive { background-color: limegreen !important;
-                   cursor: pointer;}
+                   cursor: pointer;
+                   color: black !important;}
 
 #grafdone  {text-decoration: none;
             color: black;}
