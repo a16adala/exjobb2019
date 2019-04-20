@@ -15,10 +15,6 @@ var x3;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
-console.log(beeperX, beeperY); // ta bort sen
-
-console.log(localStorage.getItem('attemptslvl1', attemptslvl1)); //ta bort sen
-
 function storebeeperpos() {
     document.getElementById('beeperX').innerHTML = beeperX;
     document.getElementById('beeperY').innerHTML = beeperY;
@@ -50,14 +46,12 @@ function lvl1default() {
 
 function TTC() {
     if (localStorage.getItem('x3', x3) == null) {
-        console.log('local tom'); //ta bort sen
         var start = new Date();
         x3 = start.getTime();
         localStorage.setItem('x3', x3);
     }
     else {
         x = localStorage.getItem('x3', x3);
-        console.log('local fylld');  //ta bort sen
     }
 }
 
@@ -197,6 +191,7 @@ function pickUp() {
         var stop = new Date();
         var y3 = stop.getTime();
         ttc3 = localStorage.getItem('x3', x3) - y3;
+        ttc3 = Math.abs(ttc3);
         localStorage.setItem("ttc3", ttc3);
         lvl1completed();
     }
@@ -215,9 +210,8 @@ function pickUp() {
 }
 
 function lvl1completed() {
-    console.log(localStorage.getItem('ttc3', ttc3)); //ta bort sen
-    console.log(localStorage.getItem("attemptslvl1", attemptslvl1)); //ta bort sen
     alert("Bra jobbat du är klar med första nivån!");
+    $("#gamecode, #movebuttons, #runbutton").addClass("deactivatebuttons");
     $("#nextlevel").addClass("nextlevelactive");
     document.getElementById('nextlevel').innerHTML =  '<a href="utangrafiklvl2.html" id="lvl2">' + '<h2>Nästa nivå</h2>' + '</a>';
 }

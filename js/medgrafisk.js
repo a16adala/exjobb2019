@@ -14,8 +14,6 @@ var x;
 
 document.addEventListener('DOMContentLoaded',initcanvas,false);
 
-console.log(localStorage.getItem('grafattemptslvl1', grafattemptslvl1)); //ta bort sen
-
 function initcanvas() {
     var canvas = document.getElementById("grafikcanvas");
     ctx = canvas.getContext("2d");
@@ -42,14 +40,12 @@ function lvl1default() {
 
 function TTC() {
     if (localStorage.getItem('x', x) == null) {
-        console.log('local tom'); //ta bort sen
         var start = new Date();
         x = start.getTime();
         localStorage.setItem('x', x);
     }
     else {
         x = localStorage.getItem('x', x);
-        console.log('local fylld');  //ta bort sen
     }
 }
 
@@ -195,6 +191,7 @@ function pickUp() {
         var stop = new Date();
         var y = stop.getTime();
         ttc = localStorage.getItem('x', x) - y;
+        ttc = Math.abs(ttc);
         localStorage.setItem('ttc', ttc);
         lvl1completed();
     }
@@ -213,9 +210,8 @@ function pickUp() {
 }
 
 function lvl1completed() {
-    console.log(localStorage.getItem('ttc', ttc)); //ta bort sen
-    console.log(localStorage.getItem("grafattemptslvl1", grafattemptslvl1)); //ta bort sen
     alert("Bra jobbat du är klar med första nivån!");
+    $("#gamecode, #movebuttons, #runbutton").addClass("deactivatebuttons");
     $("#nextlevel").addClass("nextlevelactive");
     document.getElementById('nextlevel').innerHTML =  '<a href="medgrafiklvl2.html" id="lvl2">' + '<h2>Nästa nivå</h2>' + '</a>';
 }

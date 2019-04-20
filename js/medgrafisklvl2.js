@@ -47,14 +47,12 @@ function lvl2default() {
 
 function TTC() {
     if (localStorage.getItem('x2', x2) == null) {
-        console.log('local tom'); //ta bort sen
         var start = new Date();
         x2 = start.getTime();
         localStorage.setItem('x2', x2);
     }
     else {
         x2 = localStorage.getItem('x2', x2);
-        console.log('local fylld');  //ta bort sen
     }
 }
 
@@ -83,8 +81,6 @@ function beeperfix() {
         beeper2Y = Math.floor((Math.random() * 4) + 0);
     }
 }
-
-console.log(beeperX, beeperY, beeper2X, beeper2Y); // ta bort sen
 
 function drawBeeper() {
     ctx.beginPath();
@@ -214,6 +210,7 @@ function pickUp() {
             var stop = new Date();
             var y2 = stop.getTime();
             ttc2 = localStorage.getItem('x2', x2) - y2;
+            ttc2 = Math.abs(ttc2);
             localStorage.setItem("ttc2", ttc2);
             lvl2completed();
         }
@@ -233,9 +230,8 @@ function pickUp() {
 }
 
 function lvl2completed() {
-    console.log(localStorage.getItem('ttc2', ttc2)); //ta bort sen
-    console.log(localStorage.getItem("grafattemptslvl2", grafattemptslvl2)); //ta bort sen
     alert("Bra jobbat du är klar med spelet med grafisk feedback!");
+    $("#gamecode, #movebuttons, #runbutton").addClass("deactivatebuttons");
     $("#finnishgraf").addClass("finnishgrafactive");
     if (localStorage.getItem('gameorder', gameorder) == 1) {
         document.getElementById('finnishgraf').innerHTML =  '<a href="utangrafiklvl1.html" id="lvl2">' + '<h2>Nästa spel</h2>' + '</a>';
